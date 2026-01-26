@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RS sharma chapter 1 </title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://dineshias96.github.io/CSS/Livetest.css ">
+</head>
+
+<body>
+    <div class="container" id="quizBox">
+        <h1>🧠 RS sharma chapter 1 </h1>
+
+
+        <div id="liveStudentWrap">
+            <div class="live-students">
+                <div>🔴 Live Students</div>
+                <div class="live-count" id="liveCount">—</div>
+            </div>
+        </div>
+
+
+        <div id="detailsScreen">
+            <div class="details-grid">
+                <div class="detail-card">
+                    <div class="detail-label">📝 Test Name</div>
+                    <div class="detail-value"> RS sharma chapter 1 </div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-label">🎯 Exam</div>
+                    <div class="detail-value">All Exams ( UPSC )</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-label">📚 Subject</div>
+                    <div class="detail-value">History</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-label">📖 Topic</div>
+                    <div class="detail-value">RS sharma chapter 1 </div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-label">❓ Total MCQs</div>
+                    <div class="detail-value" id="totalMCQs">6 Questions</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-label">🌐 Language</div>
+                    <div class="detail-value">English + Hindi</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-label">✅ Marks per Question</div>
+                    <div class="detail-value">+2 Marks</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-label">❌ Negative Marks</div>
+                    <div class="detail-value">-1/3 Mark</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-label">🏆 Total Marks</div>
+                    <div class="detail-value" id="totalMarks">12 Marks</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-label">⏱️ Total Time</div>
+                    <div class="detail-value" id="totalTime">12 Minutes</div>
+                </div>
+            </div>
+
+            <div class="instructions">
+                <h3>📋 Quiz Instructions / परीक्षा निर्देश</h3>
+                <ul>
+                    <li>सभी प्रश्न अनिवार्य नहीं हैं (skip कर सकते हो) / All questions are not compulsory (you can skip
+                        any MCQs)</li>
+                    <li>प्रत्येक सही उत्तर के लिए +2 अंक / +2 marks for each correct answer</li>
+                    <li>प्रत्येक गलत उत्तर के लिए -1/3 अंक / -1/3 mark for each wrong answer</li>
+                    <li>समय समाप्त होने पर परीक्षा अपने आप जमा हो जाएगी / Quiz will auto-submit when time expires</li>
+                    <li>आप किसी भी समय अपना उत्तर बदल सकते हैं / You can change your answer anytime</li>
+                    <li>बेहतर परिणाम के लिए अपना समय बुद्धिमानी से उपयोग करें / Use your time wisely for better results
+                    </li>
+                    <li class="important-warning">
+                        ⚠️ यदि आपको Quiz attend करने में कोई दिक्कत आ रही है तो आप मुझे +91 9649346723 पर WhatsApp करें।
+                        / ⚠️ If you are facing any problem in attending the Quiz then please WhatsApp me on +91
+                        9649346723.
+                    </li>
+                    <li class="important-warning">
+                        📂 यदि आपको सभी Test files चाहिए हों तो मुझसे WhatsApp पर +91 9649346723 पर संपर्क करें, मैं
+                        आपको भेज दूंगा।
+                        / 📂 If you want all the test files, please WhatsApp me on +91 9649346723 — I will send them to
+                        you.
+                    </li>
+                </ul>
+            </div>
+
+
+
+            <div class="action-row" id="actionRow">
+
+                <a id="pdfHiBtn" class="pdf-btn hidden" href="#" target="_blank" rel="noopener noreferrer">
+                    📄 PDF (हिन्दी)
+                </a>
+
+
+                <div class="voltage-button">
+                    <button class="lightning-btn" onclick="goToForm()">
+                        ⚡ Continue to Registration
+                    </button>
+                </div>
+
+                <a id="pdfEnBtn" class="pdf-btn hidden" href="#" target="_blank" rel="noopener noreferrer">
+                    📄 PDF (English)
+                </a>
+            </div>
+
+        </div>
+
+
+        <div id="timerDisplay" class="timer-display" style="display: none;">
+            <div id="timeLeft">6:00</div>
+        </div>
+
+
+        <div id="formScreen" style="display: none;">
+            <input type="text" id="name" placeholder="Name / नाम" required><br>
+            <input type="tel" id="number" placeholder="Mobile Number / मोबाइल नंबर" required><br>
+            <select id="gender">
+                <option value="">Select Gender / लिंग चुनें</option>
+                <option value="Male">Male / पुरुष</option>
+                <option value="Female">Female / महिला</option>
+                <option value="Other">Other / अन्य</option>
+            </select><br>
+            <button class="start-btn" onclick="shareWhatsApp()">📤 Share on WhatsApp</button><br><br><br><br>
+
+            <button class="start-btn" onclick="startQuiz()">🎯 Proceed / आगे बढ़ें</button>
+        </div>
+
+
+        <div id="passwordScreen" style="display: none; text-align: center;">
+            <h3 style="color: white; margin-bottom: 12px;">🔒 Enter Access Password / पासवर्ड डालें</h3>
+            <p style="color: #fff; margin-bottom:10px;">
+                Password पाने के लिए नीचे वाले बटन पर क्लिक करिये या <span class="red-glow">9649346723</span> पर
+                WhatsApp
+                करें ।
+            </p>
+            <button class="start-btn" id="waRequestBtn" onclick="requestPasswordWhatsApp()">💬 Request Password on
+                WhatsApp</button>
+            <div style="margin-top:16px;">
+                <input type="password" id="accessPassword" placeholder="Enter password / पासवर्ड डालें"
+                    style="max-width:300px;"><br>
+                <div class="unlock-wrap" style="justify-content:center; margin-top:8px;">
+                    <button class="start-btn" id="unlockBtn" onclick="checkPasswordEntry()">🔓 Unlock Quiz</button>
+                    <div class="unlock-spinner" id="unlockSpinner" aria-hidden="true"></div>
+                    <div class="unlock-status" id="unlockStatus">Verifying…</div>
+                </div>
+
+                <div id="passwordMsg" style="color:#ffd54f; margin-top:10px;"></div>
+            </div>
+        </div>
+
+
+        <div id="quizScreen" style="display: none;">
+            <div class="question" id="question"></div>
+            <div class="options" id="options"></div>
+
+            <div style="text-align: center; margin: 15px 0;">
+                <button class="reset-btn" id="resetBtn" onclick="resetCurrentQuestion()" style="display:none;">
+                    🔄 Reset Current Question / वर्तमान प्रश्न रीसेट करें
+                </button>
+            </div>
+
+            <div class="nav-buttons">
+                <button id="prevBtn" onclick="prevQuestion()" style="display:none;">◀️ Previous / पिछला</button>
+                <button id="nextBtn" onclick="nextQuestion()" style="display:none;">Next / अगला ▶️</button>
+            </div>
+
+            <button class="submit-btn" id="submitBtn" onclick="submitQuiz()" style="display:none;">✅ Submit / जमा
+                करें</button>
+            <button class="submit-public-btn" id="submitPublicBtn" onclick="submitQuizPublicly()"
+                style="display:none;">✅ Submit Publicly / सार्वजनिक जमा करें</button>
+
+            <button class="skip-submit-btn" onclick="skipAndSubmit()">Skip all & Submit</button>
+            <button class="skip-public-submit-btn" onclick="skipAndSubmitPublicly()">Skip all & Submit Publicly</button>
+        </div>
+
+
+        <div id="resultScreen" style="display: none;">
+            <p class="score" id="scoreText"></p>
+
+            <button id="pdfBtn" class="pdf-download-btn" onclick="generatePDF()" style="display: none;">
+                <span class="pdf-icon">📘</span>
+                <span class="pdf-text">Download Bilingual PDF</span>
+                <span class="pdf-hindi">द्विभाषी PDF डाउनलोड करें</span>
+                <div class="download-animation">
+                    <div class="arrow"></div>
+                    <div class="progress-bar"></div>
+                </div>
+            </button>
+
+            <button class="pdf-download-btn questions-pdf-btn" onclick="generateQuestionsPDF()">
+                <span class="pdf-icon">📗</span>
+                <span class="pdf-text">Download Questions PDF</span>
+                <span class="pdf-hindi">प्रश्न PDF डाउनलोड करें</span>
+                <div class="download-animation">
+                    <div class="arrow"></div>
+                    <div class="progress-bar"></div>
+                </div>
+            </button>
+
+            <button class="pdf-download-btn share-test-btn" onclick="shareHTMLFile()">
+                <span class="pdf-icon">📤</span>
+                <span class="pdf-text">Share Test</span>
+                <span class="pdf-hindi">टेस्ट शेयर करें</span>
+                <div class="download-animation">
+                    <div class="arrow"></div>
+                    <div class="progress-bar"></div>
+                </div>
+            </button>
+
+
+            <div class="result-buttons">
+                <button class="start-btn" onclick="restartQuiz()">🔁 Try Again / फिर से शुरू करें</button>
+                <button class="start-btn" onclick="goLive()">🔴 Go live</button>
+                <button class="start-btn" onclick="viewGraph()">📊 View Graph</button>
+                <button class="start-btn" onclick="viewExplanation()">📜 View Explanation</button>
+                <button class="start-btn challenge-friends-btn" onclick="challengeFriends()">🏆 Challenge
+                    Friends</button>
+                <button class="start-btn score-share-btn" onclick="shareScore()">📢 Share Score</button>
+                <button class="review-btn" onclick="showReviewModal()">
+                    <span class="review-btn-icon">⭐</span>
+                    Rate Your Experience
+                </button>
+                <button class="start-btn see-reviews-btn" onclick="showReviews()" style="margin-top: 10px;">
+                    📝 See Reviews
+                </button>
+                <button class="start-btn see-public-score-btn" onclick="showPublicScore()" style="margin-top: 10px;">
+                    📊 See Public Scores
+                </button>
+                <button class="start-btn girls-group-btn" onclick="showGirlsGroupOptions()" id="girlsGroupBtn"
+                    style="display: none;">
+                    👩‍🎓 Girls Group
+                </button>
+            </div>
+
+            <div style="display:flex;justify-content:center;margin-top:18px;">
+                <button class="paid-join-btn" id="joinPaidBtn" onclick="joinPaidGroup()">
+                    💳 Join Paid Group
+                </button>
+            </div>
+
+            <br><br>
+            <button class="start-btn"
+                onclick="window.open('https://chat.whatsapp.com/DVqpQQvYJZo1SC4ch6pRbS', '_blank')">
+                🔗 Join My Group
+            </button>
+        </div>
+        <div id="liveScreen">
+            <div class="live-header">
+                <div style="display:flex;align-items:center;gap:10px">
+                    <div class="live-dot"></div>
+                    <div><strong>Live Results</strong>
+                        <div class="muted">Students are sharing marks</div>
+                    </div>
+                </div>
+                <div id="liveStats" class="muted">Showing recent activity</div>
+            </div>
+
+            <div class="feed" id="feed"></div>
+
+            <div class="live-controls">
+                <div style="display:flex;gap:8px;align-items:center;">
+                    <input id="liveMarkInput" class="num-input" type="number" min="0" />
+                    <button class="small-btn" onclick="submitLiveMark()">Share Mark</button>
+                </div>
+
+                <div style="text-align:right">
+                    <div class="muted">Your name: <span id="displayName">—</span></div>
+                    <button class="small-btn" style="margin-top:6px" onclick="leaveLive()">Leave Live</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="graphScreen">
+            <h2 style="text-align: center;">📊 Live Performance Graph</h2>
+            <div id="graphContainer">
+                <div id="graphTimer">60s</div>
+                <canvas id="performanceChart"></canvas>
+            </div>
+            <div class="graph-controls">
+                <button onclick="submitGraphMark()">Submit Your Marks</button>
+                <button onclick="leaveGraph()">Back to Results</button>
+            </div>
+        </div>
+
+
+        <div id="explanationScreen">
+            <h2 style="text-align: center; color: white;">📜 Explanations & Notes</h2>
+            <div id="explanationContent"></div>
+            <br>
+            <button class="start-btn" onclick="leaveExplanation()">Back to Results</button>
+        </div>
+    </div>
+
+    </div>
+    <button class="floating-action-btn" id="fabBtn" style="display: none;" onclick="showQuestionNav()">
+        +
+    </button>
+
+    <div class="nav-overlay" id="navOverlay" onclick="hideQuestionNav()"></div>
+
+    <div class="question-nav-panel" id="questionNavPanel">
+        <div class="question-nav-header">
+            <h2>📋 Question Navigator</h2>
+            <button class="close-nav-btn" onclick="hideQuestionNav()">×</button>
+        </div>
+
+        <div class="filter-labels">
+            <div class="filter-label" data-filter="all" onclick="filterQuestions('all')">
+                <div class="color-box" style="background: linear-gradient(45deg, #2196F3, #1976D2);"></div>
+                <span>All Questions</span>
+            </div>
+            <div class="filter-label" data-filter="answered" onclick="filterQuestions('answered')">
+                <div class="color-box" style="background: #4CAF50;"></div>
+                <span>Answered</span>
+            </div>
+            <div class="filter-label" data-filter="not-visited" onclick="filterQuestions('not-visited')">
+                <div class="color-box" style="background: white; border: 2px solid #ddd;"></div>
+                <span>Not Visited</span>
+            </div>
+            <div class="filter-label" data-filter="not-answered" onclick="filterQuestions('not-answered')">
+                <div class="color-box" style="background: #f44336;"></div>
+                <span>Not Answered</span>
+            </div>
+            <div class="filter-label" data-filter="marked-answered" onclick="filterQuestions('marked-answered')">
+                <div class="color-box" style="background: #9C27B0;"></div>
+                <span>Answered & Marked</span>
+            </div>
+            <div class="filter-label" data-filter="marked-review" onclick="filterQuestions('marked-review')">
+                <div class="color-box" style="background: #9C27B0;"></div>
+                <span>Marked for Review</span>
+            </div>
+            <button class="info-btn" onclick="showLegendInfo()">i</button>
+        </div>
+
+        <div class="question-numbers-grid" id="questionNumbersGrid">
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <button class="start-btn" onclick="hideQuestionNav()" style="min-width: 150px;">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <div class="legend-info-panel" id="legendInfoPanel">
+        <div class="legend-header">
+            <h2>🎨 Question Status Legend</h2>
+            <button class="close-nav-btn" onclick="hideLegendInfo()">×</button>
+        </div>
+
+        <div class="legend-content">
+            <div class="legend-item answered">
+                <div class="legend-color" style="background: #4CAF50;"></div>
+                <div class="legend-text">
+                    <h4>Answered / उत्तरित</h4>
+                    <p>You have answered this question / आपने यह प्रश्न उत्तरित किया है</p>
+                </div>
+            </div>
+
+            <div class="legend-item not-visited">
+                <div class="legend-color" style="background: white; border: 2px solid #ddd;"></div>
+                <div class="legend-text">
+                    <h4>Not Visited / नहीं देखा</h4>
+                    <p>You have not opened this question yet / आपने यह प्रश्न अब तक नहीं खोला</p>
+                </div>
+            </div>
+
+            <div class="legend-item not-answered">
+                <div class="legend-color" style="background: #f44336;"></div>
+                <div class="legend-text">
+                    <h4>Not Answered / उत्तर नहीं दिया</h4>
+                    <p>You visited but did not mark any answer / आपने प्रश्न देखा लेकिन उत्तर नहीं दिया</p>
+                </div>
+            </div>
+
+            <div class="legend-item marked-answered">
+                <div class="legend-color" style="background: #9C27B0;"></div>
+                <div class="legend-text">
+                    <h4>Answered & Marked for Review / उत्तरित और रिव्यू के लिए चिन्हित</h4>
+                    <p>Answer is saved and marked for review later / आपने उत्तर दिया और बाद में देखने के लिए रिव्यू पर
+                        रखा</p>
+                </div>
+            </div>
+
+            <div class="legend-item marked-review">
+                <div class="legend-color" style="background: #9C27B0;"></div>
+                <div class="legend-text">
+                    <h4>Marked for Review / रिव्यू के लिए चिन्हित</h4>
+                    <p>You didn't answer but marked for review / आपने उत्तर नहीं दिया लेकिन रिव्यू के लिए चिन्हित किया
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <button class="start-btn" onclick="hideLegendInfo()" style="min-width: 150px;">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <div id="challengeFriendsScreen" style="display: none;">
+        <div style="text-align: center; margin-bottom: 25px;">
+            <h2 style="color: #FF9800; margin-bottom: 10px;">🏆 Challenge Friends</h2>
+            <p style="color: white; opacity: 0.9;">Send quiz challenge to your friends!</p>
+        </div>
+
+        <div class="challenge-container">
+            <div class="challenge-card">
+                <div class="challenge-header">
+                    <div class="challenge-icon">💪</div>
+                    <h3>Your Performance</h3>
+                </div>
+                <div class="challenge-stats" id="challengeStats">
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <div class="challenge-header">
+                    <div class="challenge-icon">👥</div>
+                    <h3>Send Challenge</h3>
+                </div>
+
+                <div class="challenge-options">
+                    <div class="challenge-option-card" onclick="showChallengeOneFriend()">
+                        <div class="option-icon">👤</div>
+                        <div class="option-content">
+                            <h4>Challenge One Friend</h4>
+                            <p>Send challenge to a specific friend</p>
+                        </div>
+                        <div class="option-arrow">➡️</div>
+                    </div>
+
+                    <div style="height: 15px;"></div>
+
+                    <div class="challenge-option-card" onclick="showChallengeAllFriends()">
+                        <div class="option-icon">👥</div>
+                        <div class="option-content">
+                            <h4>Challenge All Friends</h4>
+                            <p>Open WhatsApp to share with multiple friends</p>
+                        </div>
+                        <div class="option-arrow">➡️</div>
+                    </div>
+                </div>
+
+                <div class="action-buttons" style="margin-top: 25px;">
+                    <button class="back-btn" onclick="backToResult()">
+                        <span class="btn-icon">↩️</span>
+                        Back to Results
+                    </button>
+                </div>
+            </div>
+
+            <div class="challenge-card" id="challengeOneFriendSection" style="display: none;">
+                <div class="challenge-header">
+                    <div class="challenge-icon">👤</div>
+                    <h3>Challenge One Friend</h3>
+                </div>
+                <div class="input-group">
+                    <label for="friendNumber">Friend's WhatsApp Number</label>
+                    <input type="tel" id="friendNumber" placeholder="919876543210 (with country code)"
+                        class="number-input">
+                    <small>Include country code without + sign</small>
+                </div>
+
+                <div class="input-group">
+                    <label for="customMessage">Custom Message (Optional)</label>
+                    <textarea id="customMessage" placeholder="Add a personal message..." class="message-input"
+                        rows="3"></textarea>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="send-btn" onclick="sendChallenge()">
+                        <span class="btn-icon">🚀</span>
+                        Send Challenge
+                    </button>
+                    <button class="back-btn" onclick="backToChallengeOptions()">
+                        <span class="btn-icon">↩️</span>
+                        Back to Options
+                    </button>
+                </div>
+            </div>
+
+            <div class="challenge-card" id="challengeAllFriendsSection" style="display: none;">
+                <div class="challenge-header">
+                    <div class="challenge-icon">👥</div>
+                    <h3>Challenge All Friends</h3>
+                </div>
+
+                <div class="input-group">
+                    <label for="allFriendsMessage">Challenge Message</label>
+                    <textarea id="allFriendsMessage" class="message-input" rows="4"></textarea>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="send-btn" onclick="sendChallengeToAll()">
+                        <span class="btn-icon">📢</span>
+                        Open WhatsApp
+                    </button>
+                    <button class="back-btn" onclick="backToChallengeOptions()">
+                        <span class="btn-icon">↩️</span>
+                        Back to Options
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="scoreShareScreen" style="display: none;">
+        <div style="text-align: center; margin-bottom: 25px;">
+            <h2 style="color: #9C27B0; margin-bottom: 10px;">📢 Share Your Score</h2>
+            <p style="color: white; opacity: 0.9;">Share your achievement with others!</p>
+        </div>
+
+        <div class="share-container">
+            <div class="share-card">
+                <div class="share-header">
+                    <div class="share-icon">🌟</div>
+                    <h3>Your Achievement</h3>
+                </div>
+                <div class="share-stats" id="shareStats">
+                </div>
+            </div>
+
+            <div class="share-options">
+                <div class="share-option-card" onclick="shareWithFriends()">
+                    <div class="option-icon">👥</div>
+                    <div class="option-content">
+                        <h4>Share with Friends</h4>
+                        <p>Send to multiple friends and show off your score</p>
+                    </div>
+                    <div class="option-arrow">➡️</div>
+                </div>
+
+                <div class="share-option-card" onclick="shareWithSir()">
+                    <div class="option-icon">👨‍🏫</div>
+                    <div class="option-content">
+                        <h4>Share with Sir</h4>
+                        <p>Send your result directly to admin</p>
+                    </div>
+                    <div class="option-arrow">➡️</div>
+                </div>
+                <div class="share-option-card" onclick="shareWithAllFriends()">
+                    <div class="option-icon">📢</div>
+                    <div class="option-content">
+                        <h4>Share with All Friends</h4>
+                        <p>Open WhatsApp to share with multiple friends at once</p>
+                    </div>
+                    <div class="option-arrow">➡️</div>
+                </div>
+            </div>
+
+            <div class="action-buttons" style="margin-top: 30px;">
+                <button class="back-btn" onclick="backToResult()">
+                    <span class="btn-icon">↩️</span>
+                    Back to Results
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="shareFriendsScreen" style="display: none;">
+        <div style="text-align: center; margin-bottom: 25px;">
+            <h2 style="color: #2196F3; margin-bottom: 10px;">👥 Share with Friends</h2>
+            <p style="color: white; opacity: 0.9;">Send your score to multiple friends</p>
+        </div>
+
+        <div class="friends-container">
+            <div class="friends-card">
+                <div class="input-group">
+                    <label for="friendsNumbers">Friends' WhatsApp Numbers</label>
+                    <textarea id="friendsNumbers"
+                        placeholder="Enter numbers separated by commas&#10;Example: 919876543210, 919123456789"
+                        class="numbers-input" rows="4"></textarea>
+                    <small>Separate multiple numbers with commas</small>
+                </div>
+
+                <div class="input-group">
+                    <label for="friendsMessage">Message to Friends</label>
+                    <textarea id="friendsMessage" class="message-input" rows="4"></textarea>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="send-btn" onclick="sendToFriends()">
+                        <span class="btn-icon">📤</span>
+                        Send to Friends
+                    </button>
+                    <button class="back-btn" onclick="backToShareOptions()">
+                        <span class="btn-icon">↩️</span>
+                        Back
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <button class="premium-plan-btn" id="premiumPlanBtn" onclick="showPremiumPlans()">
+        💎
+    </button>
+
+    <button class="whatsapp-chat-btn" id="whatsappChatBtn" onclick="openWhatsAppChat()">
+        💬
+    </button>
+
+    <button class="history-btn" id="historyBtn" onclick="showHistory()">
+        📊
+    </button>
+
+    <div class="overlay" id="historyOverlay" onclick="hideHistory()"></div>
+    <div class="history-panel" id="historyPanel">
+        <button class="close-btn" onclick="hideHistory()">×</button>
+        <h2>Test History</h2>
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Score</th>
+                    <th>Correct</th>
+                    <th>Wrong</th>
+                    <th>Skipped</th>
+                    <th>Topic</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody id="historyTableBody">
+            </tbody>
+        </table>
+        <div class="history-controls">
+            <button class="clear-history-btn" onclick="clearHistory()">Clear History</button>
+            <button class="graph-history-btn" onclick="showGraphHistory()">View Graph History</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="graphHistoryOverlay" onclick="hideGraphHistory()"></div>
+    <div class="graph-history-panel" id="graphHistoryPanel">
+        <button class="close-btn" onclick="hideGraphHistory()">×</button>
+        <h2>Performance Graph History</h2>
+
+        <div class="graph-legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #4CAF50;"></div>
+                <span>Score (Marks)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #2196F3;"></div>
+                <span>Correct Answers</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #f44336;"></div>
+                <span>Wrong Answers</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #FF9800;"></div>
+                <span>Skipped Questions</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #9C27B0;"></div>
+                <span>Percentage %</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #FF5722;"></div>
+                <span>Average Growth</span>
+            </div>
+        </div>
+        <div id="historyChartContainer">
+            <canvas id="historyChart"></canvas>
+        </div>
+        <div class="history-controls">
+            <button class="clear-history-btn" onclick="clearHistory()">Clear History</button>
+            <button onclick="hideGraphHistory()">Close</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay" onclick="backToResult()"></div>
+
+
+    <div class="review-modal-overlay" id="reviewModalOverlay">
+        <div class="review-modal-content" id="reviewModal">
+            <button class="review-close-btn" onclick="hideReviewModal()">×</button>
+            <div class="review-modal-header">
+                <h2>Rate Your Experience</h2>
+                <p>अपने अनुभव को रेटिंग दें</p>
+            </div>
+
+            <div id="reviewForm">
+                <div class="star-rating" id="starRating">
+                    <span class="star" data-rating="1">★</span>
+                    <span class="star" data-rating="2">★</span>
+                    <span class="star" data-rating="3">★</span>
+                    <span class="star" data-rating="4">★</span>
+                    <span class="star" data-rating="5">★</span>
+                </div>
+
+                <textarea class="comment-box" id="reviewComment"
+                    placeholder="Write your review (optional) / अपनी समीक्षा लिखें (वैकल्पिक)"></textarea>
+
+                <button class="review-submit-btn" id="reviewSubmitBtn" onclick="submitReview()">
+                    Submit Review / समीक्षा सबमिट करें
+                </button>
+            </div>
+
+            <div id="reviewThankYou" style="display: none;">
+                <div class="review-thank-you">
+                    <h3>Thank You! 🙏</h3>
+                    <p>Your feedback has been submitted successfully.</p>
+                    <p>आपकी प्रतिक्रिया सफलतापूर्वक सबमिट कर दी गई है।</p>
+                    <button class="review-submit-btn" onclick="hideReviewModal()">
+                        Close / बंद करें
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="reviews-modal-overlay" id="reviewsModalOverlay">
+        <div class="reviews-modal-content" id="reviewsModal">
+            <div class="reviews-modal-header">
+                <button class="reviews-close-btn" onclick="hideReviews()">×</button>
+                <h2>Student Reviews</h2>
+                <p>What others are saying about this quiz</p>
+            </div>
+
+            <div class="reviews-container" id="reviewsContainer">
+                <div class="loading-reviews" id="loadingReviews">
+                    <div class="loading-spinner"></div>
+                    <p>Loading reviews...</p>
+                </div>
+            </div>
+
+            <div class="reviews-footer">
+                <button class="back-to-result-btn" onclick="hideReviews()">
+                    ← Back to Results
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="girlsGroupOverlay" onclick="hideGirlsGroupOptions()"></div>
+    <div class="girls-group-modal" id="girlsGroupModal" style="display: none;">
+        <div class="modal-content">
+            <button class="close-btn" onclick="hideGirlsGroupOptions()">×</button>
+            <h2 style="color: #e91e63; text-align: center; margin-bottom: 20px;">👩‍🎓 Join Girls Group</h2>
+
+            <div class="exam-buttons-grid">
+                <button class="exam-btn" onclick="joinGirlsGroup('UPSC')">
+                    <span>📚</span>
+                    <span>UPSC</span>
+                </button>
+                <button class="exam-btn" onclick="joinGirlsGroup('SSC')">
+                    <span>📝</span>
+                    <span>SSC</span>
+                </button>
+                <button class="exam-btn" onclick="joinGirlsGroup('Banking')">
+                    <span>💰</span>
+                    <span>Banking</span>
+                </button>
+                <button class="exam-btn" onclick="joinGirlsGroup('Railway')">
+                    <span>🚂</span>
+                    <span>Railway</span>
+                </button>
+                <button class="exam-btn" onclick="joinGirlsGroup('Teaching')">
+                    <span>👩‍🏫</span>
+                    <span>Teaching</span>
+                </button>
+                <button class="exam-btn" onclick="joinGirlsGroup('State PCS')">
+                    <span>🏛️</span>
+                    <span>State PCS</span>
+                </button>
+            </div>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <p style="color: #666; font-size: 0.9em;">
+                    Click on any exam to send a WhatsApp message to join the girls group
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<div class="public-score-modal-overlay" id="publicScoreModalOverlay">
+    <div class="public-score-modal-content" id="publicScoreModal">
+        <button class="public-score-close-btn" onclick="hidePublicScore()">×</button>
+        <div class="public-score-modal-header">
+            <h2>Public Scores</h2>
+            <p>All students' performance in this quiz</p>
+        </div>
+
+        <div class="public-score-container" id="publicScoreContainer">
+            <div class="loading-public-score" id="loadingPublicScore">
+                <div class="loading-spinner"></div>
+                <p>Loading public scores...</p>
+            </div>
+        </div>
+
+        <div class="public-score-footer">
+            <button class="refresh-public-score-btn" onclick="loadPublicScore()">
+                🔄 Refresh Scores
+            </button>
+            <button class="back-to-result-btn" onclick="hidePublicScore()">
+                ← Back to Results
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="https://dineshias96.github.io/RS_Sharma_Test/RS_1st_chap.js"></script>
+</body>
+
+</html>
